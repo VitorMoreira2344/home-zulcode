@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZulCode - Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #0a0f1c;
+      color: #e0e6f3;
+      scroll-behavior: smooth;
+    }
+    .topo-fixo {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #0a0f1c;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+    .btn-principal {
+      background: #1183ff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .btn-secundario {
+      border: 1px solid #1183ff;
+      color: #1183ff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .secao {
+      padding: 80px 24px;
+      text-align: center;
+    }
+    /* Hero */
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      min-height: 90vh;
+    }
+    .hero img {
+      width: 280px;
+    }
+    /* ===== NOVA SEÇÃO: O QUE É ===== */
+    .sobre {
+      background: #0c1324;
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .sobre h2 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .sobre p {
+      max-width: 650px;
+      margin: 0 auto 40px;
+      font-size: 1.2rem;
+      color: #c7d4f0;
+    }
+    .sobre .btn-principal {
+      font-size: 1.2rem;
+      padding: 14px 30px;
+    }
+    .icone-flutuante {
+      position: absolute;
+      opacity: 0.12;
+      animation: flutuar 8s ease-in-out infinite;
+    }
+    .icone1 { top: 10%; left: 10%; width: 60px; }
+    .icone2 { bottom: 16%; right: 15%; width: 80px; animation-delay: 0.01s; }
+    .icone3 { top: 20%; right: 20%; width: 50px; animation-delay: 0.01s; }
+    @keyframes flutuar {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* ===== NOVA SEÇÃO: COMO FUNCIONA ===== */
+    .funciona {
+      background: #0a0f1c;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .funciona h2 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+    }
+    .funciona p {
+      font-size: 1.2rem;
+      color: #c7d4f0;
+      margin-bottom: 50px;
+    }
+    .passos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .passo {
+      background: #10192e;
+      border-radius: 14px;
+      padding: 30px 20px;
+      transition: transform .6s ease, opacity .6s ease;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    .passo.ativo {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .passo img {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+    .passo span {
+      display: block;
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    /* Carrossel */
+    .carrossel {
+      position: relative;
+      margin-top: 32px;
+    }
+    .carrossel-pista {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(140px, 180px);
+      gap: 16px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 8px 48px;
+    }
+    .item {
+      background: #10192e;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .item img {
+      max-width: 60px;
+      margin-bottom: 8px;
+    }
+    .carrossel-seta {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border: none;
+      border-radius: 50%;
+      background: #10192e;
+      color: #fff;
+      cursor: pointer;
+    }
+    .prev { left: 8px; }
+    .next { right: 8px; }
+
+    /* Rodapé */
+    .rodape.completo {
+      background-color: #0c1121;
+      color: #a3b1cf;
+      padding: 48px 24px;
+    }
+    .rodape-cols {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+      max-width: 1100px;
+      margin: auto;
+    }
+    .rodape-copy {
+      text-align: center;
+      margin-top: 32px;
+      color: #7a8aa3;
+    }
+  </style>
+</head>
+<body>
+
+<header class="topo topo-fixo">
+  <h1 class="logo">ZulCode</h1>
+  <nav>
+    <a href="cadastro.html" class="btn-principal cta-cabecalho">COMEÇAR</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="secao hero">
+    <div class="lado-esq">
+      <img src="https://via.placeholder.com/300x300/1183ff/ffffff?text=Mascote" alt="Mascote ZulCode"/>
+    </div>
+    <div class="lado-dir">
+      <p>Aprender no ZulCode é divertido e prático. Lições curtas, metas diárias e progresso visível.</p>
+      <div class="acoes">
+        <a href="cadastro.html" class="btn-principal">COMEÇAR</a>
+        <a href="login.html" class="btn-secundario">JÁ TENHO CONTA</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao sobre">
+    <h2>Aprenda a programar com o ZulCode</h2>
+    <p>Uma plataforma interativa e gamificada para você dominar a programação de forma prática e envolvente. Suba de nível, conquiste metas e transforme seu aprendizado em resultados reais.</p>
+    <a href="cadastro.html" class="btn-principal">COMEÇAR AGORA</a>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" class="icone-flutuante icone1" alt="Decorativo">
+    <img src="https://images.seeklogo.com/logo-png/18/2/css3-logo-png_seeklogo-186678.png" class="icone-flutuante icone2"alt="Decorativo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/768px-HTML5_logo_and_wordmark.svg.png" class="icone-flutuante icone3" alt="Decorativo">
+  </section>
+
+  <section class="secao funciona">
+    <h2>Como funciona?</h2>
+    <p>Quatro passos simples para transformar sua forma de aprender programação</p>
+    <div class="passos">
+      <div class="passo">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="Escolha">
+        <span>Escolha sua linguagem</span>
+      </div>
+      <div class="passo">
+        <img src="https://cdn-icons-png.flaticon.com/512/2921/2921226.png" alt="Estude">
+        <span>Estude com lições interativas</span>
+      </div>
+      <div class="passo">
+        <img src="https://cdn-icons-png.flaticon.com/512/1040/1040230.png" alt="Ganhe XP">
+        <span>Ganhe XP e conquistas</span>
+      </div>
+      <div class="passo">
+        <img src="https://cdn-icons-png.flaticon.com/512/2098/2098403.png" alt="Progresso">
+        <span>Acompanhe seu progresso</span>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="rodape completo">
+    <div class="rodape-cols">
+      <div class="col">
+        <h4>ZulCode</h4>
+        <ul>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Carreiras</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Ajuda</h4>
+        <ul>
+          <li><a href="#">Central de Ajuda</a></li>
+          <li><a href="#">Fale Conosco</a></li>
+          <li><a href="#">Relatar Problema</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Termos de Uso</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="#">Cookies</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Siga</h4>
+        <ul class="sociais">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">X / Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape-copy">
+      <p>&copy; 2025 ZulCode — Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  const passos = document.querySelectorAll('.passo');
+  function animarPassos() {
+    passos.forEach(passo => {
+      const rect = passo.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) {
+        passo.classList.add('ativo');
+      }
+    });
+  }
+  window.addEventListener('scroll', animarPassos);
+  window.addEventListener('load', animarPassos);
+
+  const pista = document.getElementById('pista-linguagens');
+  const botoes = document.querySelectorAll('.carrossel-seta');
+  pista.addEventListener('wheel', e => {
+    e.preventDefault();
+    pista.scrollLeft += (e.deltaY > 0 ? 1 : -1) * 80;
+  }, { passive: false });
+  botoes.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const dir = btn.dataset.dir === 'next' ? 1 : -1;
+      pista.scrollBy({ left: dir * 300, behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>

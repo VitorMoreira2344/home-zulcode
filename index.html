@@ -6,6 +6,22 @@
   <title>ZulCode - Home</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    .float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
     body {
       background: #0a0f1c;
       color: #e0e6f3;
@@ -203,7 +219,7 @@
 
   <section class="secao hero">
     <div class="lado-esq">
-      <img src="https://via.placeholder.com/300x300/1183ff/ffffff?text=Mascote" alt="Mascote ZulCode"/>
+      <img src="zulcode.png" alt="Mascote ZulCode"  class="float"/>
     </div>
     <div class="lado-dir">
       <p>Aprender no ZulCode é divertido e prático. Lições curtas, metas diárias e progresso visível.</p>

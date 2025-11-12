@@ -1,338 +1,906 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ZulCode - Home</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    .float {
-  animation: float 3s ease-in-out infinite;
-}
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ZulCode - Aprenda Programação</title>
 
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@800&family=Poppins:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-    body {
-      background: #0a0f1c;
-      color: #e0e6f3;
-      scroll-behavior: smooth;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-    .topo-fixo {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: #0a0f1c;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 24px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    }
-    .btn-principal {
-      background: #1183ff;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-    .btn-secundario {
-      border: 1px solid #1183ff;
-      color: #1183ff;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-    .secao {
-      padding: 80px 24px;
-      text-align: center;
-    }
-    /* Hero */
-    .hero {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      min-height: 90vh;
-    }
-    .hero img {
-      width: 280px;
-    }
-    /* ===== NOVA SEÇÃO: O QUE É ===== */
-    .sobre {
-      background: #0c1324;
-      text-align: center;
-      padding: 100px 20px;
-      position: relative;
-      overflow: hidden;
-    }
-    .sobre h2 {
-      font-size: 2.8rem;
-      margin-bottom: 20px;
-      color: #fff;
-    }
-    .sobre p {
-      max-width: 650px;
-      margin: 0 auto 40px;
-      font-size: 1.2rem;
-      color: #c7d4f0;
-    }
-    .sobre .btn-principal {
-      font-size: 1.2rem;
-      padding: 14px 30px;
-    }
-    .icone-flutuante {
-      position: absolute;
-      opacity: 0.12;
-      animation: flutuar 8s ease-in-out infinite;
-    }
-    .icone1 { top: 10%; left: 10%; width: 60px; }
-    .icone2 { bottom: 16%; right: 15%; width: 80px; animation-delay: 0.01s; }
-    .icone3 { top: 20%; right: 20%; width: 50px; animation-delay: 0.01s; }
-    @keyframes flutuar {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-
-    /* ===== NOVA SEÇÃO: COMO FUNCIONA ===== */
-    .funciona {
-      background: #0a0f1c;
-      text-align: center;
-      padding: 100px 20px;
-    }
-    .funciona h2 {
-      font-size: 2.4rem;
-      margin-bottom: 10px;
-    }
-    .funciona p {
-      font-size: 1.2rem;
-      color: #c7d4f0;
-      margin-bottom: 50px;
-    }
-    .passos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .passo {
-      background: #10192e;
-      border-radius: 14px;
-      padding: 30px 20px;
-      transition: transform .6s ease, opacity .6s ease;
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    .passo.ativo {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .passo img {
-      width: 80px;
-      margin-bottom: 15px;
-    }
-    .passo span {
-      display: block;
-      font-size: 1.1rem;
-      margin-top: 10px;
-    }
-
-    /* Carrossel */
-    .carrossel {
-      position: relative;
-      margin-top: 32px;
-    }
-    .carrossel-pista {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: minmax(140px, 180px);
-      gap: 16px;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      padding: 8px 48px;
-    }
-    .item {
-      background: #10192e;
-      border-radius: 12px;
-      padding: 16px;
-      text-align: center;
-    }
-    .item img {
-      max-width: 60px;
-      margin-bottom: 8px;
-    }
-    .carrossel-seta {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 36px;
-      height: 36px;
-      border: none;
-      border-radius: 50%;
-      background: #10192e;
-      color: #fff;
-      cursor: pointer;
-    }
-    .prev { left: 8px; }
-    .next { right: 8px; }
-
-    /* Rodapé */
-    .rodape.completo {
-      background-color: #0c1121;
-      color: #a3b1cf;
-      padding: 48px 24px;
-    }
-    .rodape-cols {
-      display: grid;
-      gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
-      max-width: 1100px;
-      margin: auto;
-    }
-    .rodape-copy {
-      text-align: center;
-      margin-top: 32px;
-      color: #7a8aa3;
-    }
-  </style>
-</head>
-<body>
-
-<header class="topo topo-fixo">
-  <h1 class="logo">ZulCode</h1>
-  <nav>
-    <a href="cadastro.html" class="btn-principal cta-cabecalho">COMEÇAR</a>
-  </nav>
-</header>
-
-<main>
-
-  <section class="secao hero">
-    <div class="lado-esq">
-      <img src="zulcode.png" alt="Mascote ZulCode"  class="float"/>
-    </div>
-    <div class="lado-dir">
-      <p>Aprender no ZulCode é divertido e prático. Lições curtas, metas diárias e progresso visível.</p>
-      <div class="acoes">
-        <a href="cadastro.html" class="btn-principal">COMEÇAR</a>
-        <a href="login.html" class="btn-secundario">JÁ TENHO CONTA</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="secao sobre">
-    <h2>Aprenda a programar com o ZulCode</h2>
-    <p>Uma plataforma interativa e gamificada para você dominar a programação de forma prática e envolvente. Suba de nível, conquiste metas e transforme seu aprendizado em resultados reais.</p>
-    <a href="cadastro.html" class="btn-principal">COMEÇAR AGORA</a>
-
-    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" class="icone-flutuante icone1" alt="Decorativo">
-    <img src="https://images.seeklogo.com/logo-png/18/2/css3-logo-png_seeklogo-186678.png" class="icone-flutuante icone2"alt="Decorativo">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/768px-HTML5_logo_and_wordmark.svg.png" class="icone-flutuante icone3" alt="Decorativo">
-  </section>
-
-  <section class="secao funciona">
-    <h2>Como funciona?</h2>
-    <p>Quatro passos simples para transformar sua forma de aprender programação</p>
-    <div class="passos">
-      <div class="passo">
-        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="Escolha">
-        <span>Escolha sua linguagem</span>
-      </div>
-      <div class="passo">
-        <img src="https://cdn-icons-png.flaticon.com/512/2921/2921226.png" alt="Estude">
-        <span>Estude com lições interativas</span>
-      </div>
-      <div class="passo">
-        <img src="https://cdn-icons-png.flaticon.com/512/1040/1040230.png" alt="Ganhe XP">
-        <span>Ganhe XP e conquistas</span>
-      </div>
-      <div class="passo">
-        <img src="https://cdn-icons-png.flaticon.com/512/2098/2098403.png" alt="Progresso">
-        <span>Acompanhe seu progresso</span>
-      </div>
-    </div>
-  </section>
-
-
-  <footer class="rodape completo">
-    <div class="rodape-cols">
-      <div class="col">
-        <h4>ZulCode</h4>
-        <ul>
-          <li><a href="#">Sobre</a></li>
-          <li><a href="#">Carreiras</a></li>
-          <li><a href="#">Blog</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h4>Ajuda</h4>
-        <ul>
-          <li><a href="#">Central de Ajuda</a></li>
-          <li><a href="#">Fale Conosco</a></li>
-          <li><a href="#">Relatar Problema</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="#">Termos de Uso</a></li>
-          <li><a href="#">Política de Privacidade</a></li>
-          <li><a href="#">Cookies</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h4>Siga</h4>
-        <ul class="sociais">
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">YouTube</a></li>
-          <li><a href="#">X / Twitter</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="rodape-copy">
-      <p>&copy; 2025 ZulCode — Todos os direitos reservados.</p>
-    </div>
-  </footer>
-
-</main>
-
-<script>
-  const passos = document.querySelectorAll('.passo');
-  function animarPassos() {
-    passos.forEach(passo => {
-      const rect = passo.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 50) {
-        passo.classList.add('ativo');
+    <style>
+      /* --- Reset / Base --- */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
-    });
-  }
-  window.addEventListener('scroll', animarPassos);
-  window.addEventListener('load', animarPassos);
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
+          Helvetica, Arial;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: #e6edf3; /* Cor principal de texto mais clara para fundo escuro */
+        background: #0b0f15;
+        line-height: 1.4;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
 
-  const pista = document.getElementById('pista-linguagens');
-  const botoes = document.querySelectorAll('.carrossel-seta');
-  pista.addEventListener('wheel', e => {
-    e.preventDefault();
-    pista.scrollLeft += (e.deltaY > 0 ? 1 : -1) * 80;
-  }, { passive: false });
-  botoes.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const dir = btn.dataset.dir === 'next' ? 1 : -1;
-      pista.scrollBy({ left: dir * 300, behavior: 'smooth' });
-    });
-  });
-</script>
+      /* --- Layout & Containers --- */
+      .zulcode-container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      main.min-h-screen {
+        min-height: 100vh;
+      }
 
-</body>
+      /* --- Cabeçalho (Header) --- */
+      .zulcode-cabecalho {
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        background: #0b0f15;
+        border-bottom: 1px solid #0d1133;
+        backdrop-filter: blur(4px);
+        color: #1183ff; /* Cor da marca */
+        font-family: "Rubik", sans-serif;
+        font-size: 28px;
+        font-style: normal;
+      }
+      .cabecalho-interno {
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .botao-principal {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border: 0;
+        cursor: pointer;
+        border-radius: 12px;
+        padding: 0.6rem 1.25rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        background: #1183ff;
+        color: #fff;
+      }
+      .botao-principal:hover {
+        background: #0a488c;
+      }
+
+      /* --- Hero --- */
+      .zulcode-hero {
+        padding: 88px 0 48px;
+      }
+      @media (min-width: 900px) {
+        .zulcode-hero {
+          padding: 120px 0 56px;
+        }
+        .hero-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 48px;
+          align-items: center;
+        }
+      }
+      .hero-titulo {
+        font-size: 28px;
+        font-weight: 800;
+        color: #e6edf3;
+        margin-bottom: 18px;
+        text-align: center;
+      }
+      @media (min-width: 900px) {
+        .hero-titulo {
+          font-size: 48px;
+          text-align: left;
+        }
+      }
+      .hero-subtitulo {
+        color: #d7dadf;
+        margin-bottom: 18px;
+        font-size: 16px;
+        text-align: center;
+      }
+      @media (min-width: 900px) {
+        .hero-subtitulo {
+          text-align: left;
+        }
+      }
+      .hero-ilustracao {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 18px;
+      }
+      .botoes-acao {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+      @media (min-width: 900px) {
+        .botoes-acao {
+          justify-content: flex-start;
+        }
+      }
+      .link-fantasma {
+        color: #1cb0f6;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 13px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      /* --- Linguagens (Tech Stack) --- */
+      .linguagem-item {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        color: white;
+        white-space: nowrap;
+        font-weight: 700;
+        cursor: pointer;
+        padding: 6px 8px;
+        transition: background 0.12s;
+      }
+      .linguagem-item:hover {
+        background: #1e2633;
+        border-radius: 8px;
+      }
+      .linguagem-item img {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+      }
+
+      /* --- Seção de Aprendizado (Code Demo) --- */
+      .secao-aprendizado {
+        background: #192b45; /* Azul escuro para a seção */
+        padding: 56px 0;
+        color: white;
+      }
+      .aprendizado-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 28px;
+        align-items: center;
+      }
+      @media (min-width: 900px) {
+        .aprendizado-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .aprendizado-titulo {
+        font-size: 32px;
+        font-weight: 800;
+        margin-bottom: 18px;
+      }
+      .aprendizado-texto {
+        font-size: 16px;
+        color: #d7dadf;
+      }
+
+      /* --- Card / Code Demo --- */
+      .card-codigo {
+        background: #1e293b;
+        border-radius: 14px;
+        box-shadow: 0 16px 36px rgba(2, 6, 23, 0.25);
+        overflow: hidden;
+        max-width: 720px;
+        width: 100%;
+        color: #fff;
+      }
+      .card-codigo-topo {
+        background: #2d3748;
+        padding: 12px;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .bolinha {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .bolinha.red {
+        background: #ef4444;
+      }
+      .bolinha.yellow {
+        background: #f59e0b;
+      }
+      .bolinha.green {
+        background: #10b981;
+      }
+      .card-codigo-corpo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .card-codigo-esquerda {
+        padding: 20px;
+      }
+      .esqueleto {
+        height: 12px;
+        background: #374151;
+        border-radius: 8px;
+        margin-bottom: 12px;
+      }
+      .esqueleto.grande {
+        height: 64px;
+        background: #1f2937;
+      }
+      .card-codigo-direita {
+        background: #0b1220;
+        padding: 24px;
+        position: relative;
+        min-height: 220px;
+      }
+      .botao-executar {
+        position: absolute;
+        right: 18px;
+        bottom: 18px;
+        background: #4181c7;
+        color: #fff;
+        border-radius: 8px;
+        padding: 8px 12px;
+        border: 0;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      /* --- Seções de Recursos (Feature) --- */
+      .zulcode-recurso {
+        padding: 56px 0;
+      }
+      .recurso-interno {
+        display: block;
+        gap: 24px;
+      }
+      @media (min-width: 900px) {
+        .recurso-interno {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 48px;
+          align-items: center;
+        }
+      }
+      .titulo-recurso {
+        font-size: 32px;
+        font-weight: 800;
+      }
+
+      /* --- Final CTA --- */
+      .cta-final {
+        background: linear-gradient(180deg, #0b0f15 0%, #1183ff 100%);
+        padding: 64px 0;
+        text-align: center;
+        color: white;
+      }
+      .cta-final h2 {
+        color: white;
+      }
+      .cta-final .botao-principal {
+        background: white;
+        color: #1183ff;
+      }
+      .cta-final .botao-principal:hover {
+        background: #f3f4f6;
+        color: #1183ff;
+      }
+
+      /* --- Rodapé (Footer) --- */
+      .zulcode-rodape {
+        background: #0d1133;
+        color: #fff;
+        padding: 48px 0;
+      }
+      .rodape-grade {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      @media (min-width: 900px) {
+        .rodape-grade {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      .zulcode-rodape h3 {
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+      .zulcode-rodape a {
+        color: rgba(255, 255, 255, 0.95);
+      }
+
+      /* --- Utilities --- */
+      .texto-centralizado {
+        text-align: center;
+      }
+      .cor-destaque {
+        color: #28a745; /* Verde para destaque positivo */
+      }
+      .texto-suave {
+        color: #d7dadf;
+      }
+      .centralizar-vertical {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="min-h-screen">
+      <header class="zulcode-cabecalho" aria-label="Cabeçalho principal">
+        <div class="zulcode-container">
+          <div class="cabecalho-interno">
+            <div style="display: flex; align-items: center; gap: 12px">
+              <b>ZulCode<b>
+            </div>
+            <div>
+              <button class="botao-principal" onclick="scrollToSection('hero')">
+                Comece a Codar
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section id="hero" class="zulcode-hero zulcode-container">
+        <div class="hero-grid">
+          <div class="hero-ilustracao">
+            <img
+              src="zulcode.png"
+              alt="Ilustração de Desenvolvimento de Software"
+              style="max-width: 420px"
+            />
+          </div>
+
+          <div>
+            <h1 class="hero-titulo">
+              O jeito prático, divertido e eficaz de aprender <b>Programação</b>!
+            </h1>
+            <p class="hero-subtitulo">
+              Aprenda a codar com lições rápidas e interativas — ganhe pontos,
+              avance níveis e pratique lógica, sintaxe e resolução de problemas.
+            </p>
+
+            <div class="botoes-acao">
+              <button
+                class="botao-principal"
+                onclick="scrollToSection('cta-final')"
+              >
+                Comece a Codar
+              </button>
+              <a href="#" class="link-fantasma" aria-label="Já tenho uma conta"
+                >Já tenho um projeto</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="padding: 20px 0; background: #070a0e">
+        <div class="zulcode-container">
+          <div
+            style="
+              display: flex;
+              gap: 12px;
+              align-items: center;
+              overflow-x: auto;
+              padding: 6px 10px;
+              scrollbar-width: none;
+              -ms-overflow-style: none;
+            "
+          >
+            <div class="linguagem-item">
+              <img
+                src="https://ext.same-assets.com/1956114952/4064110058.svg"
+                alt="Python Logo"
+              />
+              <span>Python</span>
+            </div>
+            <div class="linguagem-item">
+              <img
+                src="https://ext.same-assets.com/1956114952/701384711.svg"
+                alt="HTML Logo"
+              />
+              <span>HTML</span>
+            </div>
+            <div class="linguagem-item">
+              <img
+                src="https://ext.same-assets.com/1956114952/75776152.svg"
+                alt="JavaScript Logo"
+              />
+              <span>JavaScript</span>
+            </div>
+            <div class="linguagem-item">
+              <img
+                src="https://ext.same-assets.com/1956114952/1099217744.svg"
+                alt="Java Logo"
+              />
+              <span>Java</span>
+            </div>
+            <div class="linguagem-item">
+              <img
+                src="https://ext.same-assets.com/1956114952/1580506204.svg"
+                alt="C++ Logo"
+              />
+              <span>C++</span>
+            </div>
+            <div class="linguagem-item">
+              <img
+                src="https://ext.same-assets.com/1956114952/337484412.svg"
+                alt="SQL Logo"
+              />
+              <span>SQL</span>
+            </div>
+            <div class="linguagem-item">
+              <img
+                src="https://ext.same-assets.com/1956114952/3767164794.svg"
+                alt="C Logo"
+              />
+              <span>C</span>
+            </div>
+            <div class="linguagem-item">
+              <img
+                src="https://ext.same-assets.com/1956114952/2127960631.svg"
+                alt="CSS Logo"
+              />
+              <span>CSS</span>
+            </div>
+            <div class="linguagem-item">
+              <img
+                src="https://ext.same-assets.com/1956114952/2414291000.svg"
+                alt="C# Logo"
+              />
+              <span>C#</span>
+            </div>
+            <div class="linguagem-item">
+              <img
+                src="https://ext.same-assets.com/1956114952/3686881082.svg"
+                alt="PHP Logo"
+              />
+              <span>PHP</span>
+            </div>
+            <div class="linguagem-item">
+              <img
+                src="https://ext.same-assets.com/1956114952/1675983535.svg"
+                alt="Dart Logo"
+              />
+              <span>Dart</span>
+            </div>
+
+            <button
+              style="background: none; border: none; cursor: pointer"
+              title="próximo"
+            >
+              <img
+                src="https://ext.same-assets.com/1956114952/962924999.svg"
+                alt="próximo"
+                width="24"
+                height="24"
+              />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="secao-aprendizado">
+        <div class="zulcode-container">
+          <div class="aprendizado-grid">
+            <div>
+              <h2 class="aprendizado-titulo">Aprenda <b>Codando</b></h2>
+              <p class="aprendizado-texto">
+                Desenvolva em qualquer lugar, a qualquer momento, sem
+                necessidade de configuração. Nossa plataforma integrada suporta
+                cada passo da sua jornada de programação.
+              </p>
+            </div>
+
+            <div class="centralizar-vertical">
+              <div class="card-codigo" aria-hidden="false">
+                <div class="card-codigo-topo">
+                  <div style="display: flex; gap: 8px; align-items: center">
+                    <div class="bolinha red"></div>
+                    <div class="bolinha yellow"></div>
+                    <div class="bolinha green"></div>
+                  </div>
+                </div>
+
+                <div class="card-codigo-corpo">
+                  <div class="card-codigo-esquerda">
+                    <div class="esqueleto" style="width: 75%"></div>
+                    <div class="esqueleto" style="width: 50%"></div>
+                    <div class="esqueleto" style="width: 83%"></div>
+                    <div class="esqueleto grande"></div>
+
+                    <div
+                      style="
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        margin-top: 18px;
+                      "
+                    >
+                      <div style="width: 16px; height: 16px"></div>
+                      <span style="font-weight: 700; font-size: 14px"
+                        ></span
+                      >
+                    </div>
+
+                    <div class="esqueleto" style="width: 80%"></div>
+                    <div class="esqueleto" style="width: 66%"></div>
+                    <div class="esqueleto" style="width: 75%"></div>
+                  </div>
+
+                  <div class="card-codigo-direita">
+                    <div style="position: absolute; bottom: 16px; right: 16px">
+                      <button class="botao-executar">▶ </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="zulcode-recurso zulcode-container">
+        <div class="recurso-interno">
+          <div class="texto-centralizado">
+            <h2 class="cor-destaque titulo-recurso" style="color: #1183ff">
+              <b>Grátis</b>. Prático.<br />Eficaz.
+            </h2>
+            <p
+              class="texto-suave"
+              style="max-width: 720px; margin: 12px auto; font-size: 17px"
+            >
+              Aprender com a <b>ZulCode</b> é divertido e
+              <a
+                href="#"
+                style="color: #1cb0f6; font-weight: 800; margin-left: 6px"
+                >pesquisas comprovam que funciona</a
+              >. Com lições curtinhas, você ganha XP e desbloqueia módulos
+              enquanto aprende a programar de verdade.
+            </p>
+          </div>
+
+          <div class="centralizar-vertical" style="margin-top: 12px">
+            <img
+              src="zulcode.png"
+              alt="Aprender com ZulCode"
+              style="max-width: 420px; width: 100%"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="zulcode-recurso" style="background: #0d1133">
+        <div class="zulcode-container recurso-interno">
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr;
+              gap: 20px;
+              align-items: center;
+            "
+          >
+            <div style="order: 2">
+              <img
+                src="zulcode.png"
+                alt="Desenvolvimento Ágil"
+                style="max-width: 420px; margin: 0 auto; display: block"
+              />
+            </div>
+            <div style="order: 1; text-align: center">
+              <h2 class="cor-destaque titulo-recurso" style="color: #1183ff">
+                Baseado em <b>Metodologias Ágeis</b>
+              </h2>
+              <p
+                class="texto-suave"
+                style="max-width: 620px; margin: 10px auto; font-size: 17px"
+              >
+                Combinamos práticas de desenvolvimento de software com conteúdo
+                cativante para criar cursos que ensinam lógica, sintaxe e
+                arquitetura de código.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="zulcode-recurso zulcode-container">
+        <div
+          class="recurso-interno"
+          style="
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            align-items: center;
+          "
+        >
+          <div style="text-align: center">
+            <h2 class="titulo-recurso" style="color: #1183ff">
+              Mantenha a <b>Motivação</b> com Gamificação
+            </h2>
+            <p
+              class="texto-suave"
+              style="max-width: 640px; margin: 12px auto; font-size: 17px"
+            >
+              Crie o hábito diário de codar com recursos gamificados, rankings e
+              desafios de programação constantes.
+            </p>
+          </div>
+
+          <div class="centralizar-vertical">
+            <img
+              src="zulcode.png"
+              alt="Gamificação na Programação"
+              style="max-width: 420px; width: 100%"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="zulcode-recurso" style="background: #0d1133">
+        <div class="zulcode-container recurso-interno">
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr;
+              gap: 20px;
+              align-items: center;
+            "
+          >
+            <div>
+              <img
+                src="zulcode.png"
+                alt="Aprendizado Personalizado em Código"
+                style="max-width: 420px; margin: 0 auto; display: block"
+              />
+            </div>
+            <div style="text-align: center">
+              <h2 class="titulo-recurso" style="color: #1183ff">
+                <b>Aprendizado</b> feito sob medida para você
+              </h2>
+              <p
+                class="texto-suave"
+                style="max-width: 640px; margin: 12px auto; font-size: 17px"
+              >
+                Lições personalizadas que combinam IA e conhecimento de software
+                para ensinar no seu ritmo e nível de experiência.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="zulcode-recurso zulcode-container">
+        <div class="texto-centralizado">
+          <h2 style="font-size: 26px; font-weight: 800; color: #e6edf3">
+            <b>Code</b> onde e quando quiser
+          </h2>
+          <div
+            style="
+              display: flex;
+              gap: 12px;
+              justify-content: center;
+              flex-wrap: wrap;
+              margin-top: 12px;
+            "
+          >
+            <a href="#" class="botao-loja-app">
+              <div>
+                <div style="font-size: 12px; color: #6b7280">Baixe na</div>
+                <div style="font-weight: 800">App Store</div>
+              </div>
+            </a>
+            <a href="#" class="botao-loja-app">
+              <div>
+                <div style="font-size: 12px; color: #6b7280">DISPONÍVEL NO</div>
+                <div style="font-weight: 800">Google Play</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <style>
+          .botao-loja-app {
+            display: inline-block;
+            border: 2px solid #374151; /* Adaptado para o tema escuro */
+            border-radius: 12px;
+            padding: 10px 18px;
+            color: #e6edf3;
+            transition: border-color 0.3s;
+          }
+          .botao-loja-app:hover {
+            border-color: #1183ff;
+          }
+        </style>
+
+        <div class="centralizar-vertical">
+          <img
+            src="https://ext.same-assets.com/72681254/2934165504.svg"
+            alt="Mobile App"
+            style="max-width: 720px; width: 100%"
+          />
+        </div>
+      </section>
+
+
+      <section id="cta-final" class="cta-final">
+        <div class="zulcode-container texto-centralizado">
+          <h2 style="font-size: 30px; font-weight: 800; margin-bottom: 18px">
+            Comece a <b>Codar</b> <br />com a ZulCode
+          </h2>
+          <div style="margin-bottom: 18px">
+            <button
+              class="botao-principal"
+              onclick="alert('Iniciar fluxo de inscrição (simulação).')"
+            >
+              Comece agora
+            </button>
+          </div>
+          <div
+            style="
+              display: flex;
+              gap: 18px;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <img
+              src="https://ext.same-assets.com/1956114952/701384711.svg"
+              alt="HTML Icon"
+              width="80"
+              height="80"
+            />
+            <img
+              src="https://ext.same-assets.com/1956114952/2127960631.svg"
+              alt="CSS Icon"
+              width="80"
+              height="80"
+            />
+            <img
+              src="https://ext.same-assets.com/1956114952/75776152.svg"
+              alt="JavaScript Icon"
+              width="80"
+              height="80"
+            />
+          </div>
+        </div>
+      </section>
+
+      <footer class="zulcode-rodape">
+        <div class="zulcode-container">
+          <div class="rodape-grade">
+            <div>
+              <h3>ZulCode</h3>
+              <ul style="list-style: none; margin-top: 8px; line-height: 1.9">
+                <li><a href="#">Cursos</a></li>
+                <li><a href="#">Missão</a></li>
+                <li><a href="#">Método de Ensino</a></li>
+                <li><a href="#">Certificação</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3>Comunidade</h3>
+              <ul style="list-style: none; margin-top: 8px; line-height: 1.9">
+                <li><a href="#">Blog ZulCode</a></li>
+                <li><a href="#">Suporte</a></li>
+                <li><a href="#">Central de Ajuda</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3>Aplicativos</h3>
+              <ul style="list-style: none; margin-top: 8px; line-height: 1.9">
+                <li><a href="#">ZulCode para Android</a></li>
+                <li><a href="#">ZulCode para iOS</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3>Redes sociais</h3>
+              <ul style="list-style: none; margin-top: 8px; line-height: 1.9">
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">TikTok</a></li>
+                <li><a href="#">YouTube</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            style="
+              margin-top: 28px;
+              border-top: 1px solid rgba(255, 255, 255, 0.12);
+              padding-top: 16px;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                align-items: center;
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.9);
+              "
+            >
+              <span>Idioma do site:</span>
+              <a href="#">Português</a><span>•</span> <a href="#">English</a
+              ><span>•</span> <a href="#">Español</a>
+            </div>
+
+            <div
+              style="
+                margin-top: 12px;
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.85);
+              "
+            >
+              © 2025 ZulCode. Todos os direitos reservados.
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      // Helper para Scroll Suave
+      function scrollToSection(id) {
+        var el = document.getElementById(id);
+        if (!el) {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          return;
+        }
+        var top = el.getBoundingClientRect().top + window.scrollY - 72; // Ajuste para o cabeçalho
+        window.scrollTo({ top: top, behavior: "smooth" });
+      }
+
+      // Simulação de clique nos itens de linguagem
+      document.querySelectorAll(".linguagem-item").forEach(function (it) {
+        it.addEventListener("click", function () {
+          this.style.background = "#1e2633"; // Adaptação da cor para o tema escuro
+          setTimeout(() => (this.style.background = ""), 500);
+        });
+      });
+
+      // Simulação de clique nos botões CTA
+      document.querySelectorAll(".botao-principal").forEach((b) => {
+        if (
+          b.onclick &&
+          b.onclick.toString().includes("alert('Comece agora!")
+        ) {
+          b.onclick = () => {
+            alert("Iniciar fluxo de inscrição ZulCode (simulação).");
+          };
+        }
+      });
+    </script>
+  </body>
 </html>
